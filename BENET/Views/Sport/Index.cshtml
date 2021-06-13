@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BENET.Models.SportModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Exercises</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SportName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SportType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SportDrill)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SportName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SportType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SportDrill)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

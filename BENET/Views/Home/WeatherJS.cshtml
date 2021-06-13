@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "WeatherJS";
+}
+
+<h2>Weather Forecast</h2>
+<div class="col-md-12">
+    <h1>Current Conditions in <span data-bind="text:name"></span></h1>
+</div>
+
+<div class="col-md-12">
+    <h4>Temperature is <span data-bind="text:main.temp"></span>&deg; C</h4>
+</div>
+
+<div class="col-md-12">
+    <h4>Humidity is <span data-bind="text:main.humidity"></span>%</h4>
+</div>
+
+<div class="col-md-12">
+    <h4>Cloudiness is <span data-bind="text:clouds.all"></span>%</h4>
+</div>
+<hr />
+<div class="col-md-12">
+    <h4>Recommendation =</h4><h3><span data-bind="text:temp.recom"></span></h3><h1></h1>
+</div>
+<hr />
+<script>
+    var weather = Object();
+    var appid = "5ae2f0d776e07770827b7ae3d1274372";
+    $(document).ready(function () {
+        $.get("https://api.openweathermap.org/data/2.5/weather?q=Yogyakarta&APPID=" + appid + "&units=metric", function (response) {
+            //Response
+            console.log(response);
+            temp = response;
+            console.log(temp.clouds.all);
+            if (temp.clouds.all > 75) {
+                temp.recom = "Don't go outside! It's very cloudy but it's ok. Hype it up and exercise indoor!"
+            } else if (temp.clouds.all > 50) {
+                temp.recom = "It's a bit cloudy. Try Indoor exercise!"
+            } else if (temp.clouds.all > 25) {
+                temp.recom = "It's not that cloudy. Try Outdoor exercise!"
+            } else {
+                temp.recom = "The sky is clear, Yeaah! Go outside and exercise!"
+            }
+            weather = ko.mapping.fromJS(temp);  //Populate the weather object
+            ko.applyBindings(weather);
+        });
+    });
+
+
+</script>

@@ -15,3 +15,5 @@ BENET : Bringing Every Need to Exert Training
 <h4>Cara Kerja</h4>
 <p>     Mengunduh zip repository, aplikasi dijalankan dengan memilih BENET.sln . Menjalankan aplikasi akan membuka web local host dan akan muncul 'Home Page'. Buka 'About' untuk mengetahui tentang aplikasi. Buka 'Weather' untuk mengetahui perkiraan cuaca (sejauh ini hanya di Yogyakarta) dan rekomendasi tipe olahraga yang diambil. Buka 'Show Sport' untuk melihat pilihan olahraga. Berdasarkan data yang sudah ada dapat dilihat detail Sport menurut olahraga yang diinginkan. Untuk mengubah, menambahkan, atau menghapus data, diperlukan untuk register menggunakan email dan login ke aplikasi. Setelah login dapat mengakses seluruh aplikasi.</p>
 <h4>Domain Diagram</h4>
+
+![](BENET_DatabaseDiagram.png)
